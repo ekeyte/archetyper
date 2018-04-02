@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once "app/bootstrap.php";
+
+$basePath = __DIR__ . '/var/example-archetypes';
+$localArchetypeRepository = new \EricKeyte\Archetyper\Domain\Archetype\LocalArchetypeRepository($basePath);
+
+$pathWriter = new \EricKeyte\Archetyper\PathWriter();
+$manager = new \EricKeyte\Archetyper\Manager($localArchetypeRepository, $pathWriter);
+
+$console = new \EricKeyte\Archetyper\App\Console($manager);
+
+$code = $console->run($_SERVER['argv'][1]);
+
+exit($code);

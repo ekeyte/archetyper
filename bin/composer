@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $DIR/..
+
+docker container run --rm -it \
+    -v $(pwd):/app \
+    -v ~/.composer:/tmp \
+    --user $(id -u):$(id -g) \
+    composer $@
