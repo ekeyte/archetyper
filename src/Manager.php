@@ -39,8 +39,8 @@ class Manager
      */
     public function createProjectFromArchetype($archetype)
     {
-        $archetypeFile = $this->archetypeRepository->getArchetype($archetype);
-        $decoded = json_decode($archetypeFile, true);
+        $archetypeObject = $this->archetypeRepository->getArchetype($archetype);
+        $decoded = json_decode($archetypeObject->getRaw(), true);
         if (!isset($decoded['tree']) || empty($decoded['tree'])) {
             throw new Exception('Archetype file\'s "tree" key has no nodes.');
         }

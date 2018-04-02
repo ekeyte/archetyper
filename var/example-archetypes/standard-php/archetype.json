@@ -1,4 +1,7 @@
 {
+  "name": "standard-php",
+  "author": "Eric Keyte",
+  "email": "ekeyte@gmail.com",
   "tree": [
     {
       "name": "src",

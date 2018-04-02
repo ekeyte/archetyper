@@ -8,9 +8,9 @@ namespace EricKeyte\Archetyper\Domain\Archetype;
 interface ArchetypeRepository
 {
     /**
-     * @param $archetype
+     * @param $name
      *
      * @return Archetype
      */
-    public function getArchetype($archetype);
+    public function getArchetype($name);
 }

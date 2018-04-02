@@ -38,8 +38,10 @@ class Archetype
     {
         if (!is_array($array)) {
             throw new DomainException(
-                sprintf('Archetype::fromArray parameter 1 is type %s, expected array.', gettype($array)
-            ));
+                sprintf(
+                    'Archetype::fromArray parameter 1 is type %s, expected array.', gettype($array)
+                )
+            );
         }
 
         return new static(
@@ -48,6 +50,22 @@ class Archetype
             $array['raw'],
             $array['version']
         );
+    }
+
+    /**
+     * Constructs Archetype
+     *
+     * @param        $name
+     * @param        $author
+     * @param string $raw
+     * @param        $version
+     */
+    public function __construct($name, $author, $raw, $version)
+    {
+        $this->name = $name;
+        $this->author = $author;
+        $this->raw = $raw;
+        $this->version = $version;
     }
 
     /**
@@ -80,21 +98,5 @@ class Archetype
     public function getVersion()
     {
         return $this->version;
-    }
-
-    /**
-     * Constructs Archetype
-     *
-     * @param        $name
-     * @param        $author
-     * @param string $raw
-     * @param        $version
-     */
-    protected function __construct($name, $author, $raw, $version)
-    {
-        $this->name = $name;
-        $this->author = $author;
-        $this->raw = $raw;
-        $this->version = $version;
     }
 }

@@ -29,17 +29,26 @@ class LocalArchetypeRepository implements ArchetypeRepository
     /**
      * {@inheritdoc}
      */
-    public function getArchetype($archetype)
+    public function getArchetype($name)
     {
         $adapter = new Local($this->basePath);
         $filesystem = new Filesystem($adapter);
-        $filename = $archetype . '/archetype.json';
+        $filename = $name . '/archetype.json';
         $archetypeFile = $filesystem->read($filename);
 
         if (empty($archetypeFile)) {
             throw new Exception('Archetype file contains no data');
         }
 
-        return $archetypeFile;
+        $decoded = json_decode($archetypeFile, true);
+
+        $archetype = new Archetype(
+            $decoded['name'],
+            $decoded['author'],
+            $archetypeFile,
+            $decoded['version']
+        );
+
+        return $archetype;
     }
 }

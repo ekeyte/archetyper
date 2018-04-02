@@ -7,5 +7,13 @@ namespace EricKeyte\Archetyper\Test\Unit;
  */
 class TestCase extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @return \Mockery\MockInterface
+     */
+    public function mock()
+    {
+        $args = func_get_args();
 
+        return \Mockery::mock($args);
+    }
 }
