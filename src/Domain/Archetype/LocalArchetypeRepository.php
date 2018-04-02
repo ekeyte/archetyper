@@ -2,6 +2,7 @@
 
 namespace EricKeyte\Archetyper\Domain\Archetype;
 
+use Exception;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 
@@ -33,8 +34,12 @@ class LocalArchetypeRepository implements ArchetypeRepository
         $adapter = new Local($this->basePath);
         $filesystem = new Filesystem($adapter);
         $filename = $archetype . '/archetype.json';
-
         $archetypeFile = $filesystem->read($filename);
-        dump($archetypeFile);exit;
+
+        if (empty($archetypeFile)) {
+            throw new Exception('Archetype file contains no data');
+        }
+
+        return $archetypeFile;
     }
 }

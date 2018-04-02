@@ -34,12 +34,13 @@ class Console
     {
         try {
             $this->manager->createProjectFromArchetype($archetype);
+            echo "Created archetype successfully.";
+
+            return 0;
         } catch (\Exception $e) {
             echo $e;
 
             return 1;
         }
-
-        return 0;
     }
 }
