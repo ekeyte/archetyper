@@ -1,0 +1,72 @@
+{
+  "tree": [
+    {
+      "name": "src",
+      "type": "directory",
+      "children": []
+    },
+    {
+      "name": "tests",
+      "type": "directory",
+      "children": [
+        {
+          "name": "Functional",
+          "type": "directory",
+          "children": [
+            {
+              "name": "TestCase.php",
+              "type": "file",
+              "template": "templates/FunctionalTestCase.php"
+            }
+          ]
+        },
+        {
+          "name": "Integration",
+          "type": "directory",
+          "children": [
+            {
+              "name": "TestCase.php",
+              "type": "file",
+              "template": "templates/IntegrationTestCase.php"
+            }
+          ]
+        },
+        {
+          "name": "Unit",
+          "type": "directory",
+          "children": [
+            {
+              "name": "TestCase.php",
+              "type": "file",
+              "template": "templates/UnitTestCase.php"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": ".gitignore"
+    },
+    {
+      "type": "file",
+      "name": "composer.json"
+    },
+    {
+      "type": "file",
+      "name": "composer.lock"
+    },
+    {
+      "type": "file",
+      "name": ".env"
+    },
+    {
+      "type": "file",
+      "name": "artisan.php"
+    },
+    {
+      "type": "file",
+      "name": "README.md"
+    }
+  ]
+}
